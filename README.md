@@ -1,5 +1,11 @@
 # `🪬` Bad-Stealer
 
+[![GitHub Activity](https://img.shields.io/github/commit-activity/m/7klow/Bad-Stealer.svg?style=for-the-badge)](https://github.com/7klow/Bad-Stealer/commits)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg?style=for-the-badge)](https://github.com/7klow/Bad-Stealer/blob/main/LICENSE)
+[![Forks](https://img.shields.io/github/forks/7klow/Bad-Stealer?style=for-the-badge)](https://github.com/7klow/Bad-Stealer/fork)
+[![Stars](https://img.shields.io/github/stars/7klow/Bad-Stealer?style=for-the-badge)](https://github.com/7klow/Bad-Stealer/stargazers)
+
+
 > [!NOTE]
 > **Use With Caution**  
 > This tool is not foolproof. It cannot protect against all potential risks.  
