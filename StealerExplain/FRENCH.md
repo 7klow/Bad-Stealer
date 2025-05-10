@@ -46,21 +46,89 @@ Et qu'en plus de ça, il **connaît votre système d'exploitation**, il peut tr�
 
 ## Comment ça marche ?
 
-Nous allons partir du principes que l'attaquant à utilisé un stealer open source. Maintenant qu'il à réussi à vous faire télécharger et executer son stealer, qu'elles sont les données qu'il a en sa possession ?  
+Nous allons partir du principe que l'attaquant a utilisé un **stealer open source**.  
+Maintenant qu'il a réussi à vous faire télécharger et exécuter son stealer, **quelles sont les données qu'il a en sa possession** ?
 
-https://github.com/doenerium6969/doenerium-fixed/blob/main/stub/stub.js#L272
+Voici une liste des **informations qu'il risque de détenir** :
 
-https://github.com/PIKA-X-777/CStealer/blob/main/creal.py#L931
+- **Les informations sur votre système** (MAC, HWID, IP, KEY PRODUCT, etc.)
+- **Vos logins** (web)
+- **Votre historique** (web)
+- **Vos cookies** (web)
+- **Vos autofills** (web)
+- **Vos bookmarks** (web)
+- **Des fichiers spécifiques** (`password.txt`, `mdp.txt`, etc.)
+- **Vos wallets**
+- **Votre session Discord**
+- etc.
 
-Voici une liste des informations qu'il risque de détenir:
+> [!NOTE]  
+> Vous pouvez vous rendre sur ces deux GitHub pour avoir une vision  
+> plus étendue de ce qu'on peut obtenir avec un stealer open source :
+> - [CStealer](https://github.com/PIKA-X-777/CStealer)
+> - [Doenerium](https://github.com/doenerium6969/doenerium-fixed)
+>
+> Et ici pour comprendre **où il les récupère** :
+> - [CStealer Path](https://github.com/PIKA-X-777/CStealer/blob/main/creal.py#L931)
+> - [Doenerium Path](https://github.com/doenerium6969/doenerium-fixed/blob/main/stub/stub.js#L272)
 
- - les informations sur votre systeme (MAC, HWID, IP, KEY PRODUCT etc.)
- - Vos logins (web)
- - Votre historique (web)
- - Vos cookies (web)
- - Vos autofills (web)
- - Vos bookmarks (web)
- - Des fichiers spécifiques (password.txt, mdp.txt etc.)
- - Vos wallets
- - Votre session discord
- - etc.
+> [!TIP]  
+> Pour comprendre **comment un stealer est conçu**,  
+> consultez le GitHub de [Lawxsz](https://github.com/Lawxsz/make-u-own-stealer/)  
+> (très utile si vous voulez en apprendre plus sur leur fonctionnement).
+
+Pour ceux qui ont du mal avec Python, voici **une explication simplifiée** du fonctionnement.
+
+Les stealers ne font que :
+
+- **Tuer les tâches gênantes** (navigateurs actifs qui bloquent l'accès aux données)
+- **Chercher les fichiers ciblés**
+- **Décrypter** les données (si nécessaire)
+- **Les envoyer** à l'attaquant (webhook, FTP, etc.)
+
+### Pour "tuer les tâches gênantes" :
+Le programme **ferme les navigateurs** (Chrome, Edge, Firefox, etc.)  
+afin de pouvoir accéder aux **logins, cookies, autofills**, etc.
+
+#### Logins, history, autofills :
+- Récupère la **"Master Key"** (clé AES) dans le fichier `Local State`
+- Ouvre les fichiers SQLite de Chrome : `Login Data`, `Web Data`, etc.
+- Décrypte les champs chiffrés (mots de passe, numéros de carte, champs auto-complétés)
+- Formate les données pour qu'elles soient **facilement lisibles**
+
+#### Cookies :
+- Utilise aussi la **Master Key** (depuis `Local State`)
+- Ouvre la base `Cookies` (fichier SQLite)
+
+- Pour les **cookies v10** :
+  - Détection du préfixe `v10`
+  - Déchiffrement via **AES-GCM** (avec IV, données, tag)
+  - Reconstruction du cookie : nom, valeur, domaine…
+
+- Pour les **cookies v20** (Chrome 118+) :
+  - Détection du préfixe `v20`
+  - Extraction du `nonce`, des données chiffrées et du `tag`
+  - Déchiffrement avec **AES-GCM** + Master Key
+  - Formatage final du cookie en clair
+
+> [!WARNING]  
+> Le **véritable danger**, ce sont les **cookies décryptés**.  
+> Ils permettent à un attaquant d'accéder à vos **sessions en cours**,  
+> sans jamais passer par vos mots de passe ni la double authentification (2FA).
+
+Avec des cookies volés, un attaquant peut utiliser l'extension  
+[Cookie Quick Manager](https://addons.mozilla.org/en-US/firefox/addon/cookie-quick-manager/)  
+(disponible uniquement sur Firefox) pour **importer vos cookies volés**  
+et **se connecter à vos comptes** (Instagram, Spotify, etc.)  
+comme s’il s’agissait de votre propre session.
+
+> [!TIP]  
+> Pour **révoquer l'accès via les cookies volés**,  
+> **changez simplement vos mots de passe**. Cela les rend expirés/inutilisables.
+
+> [!WARNING]  
+> Même si c'est réversible, pendant le temps où l'attaquant a accès :  
+> il peut **lire vos messages privés**, **poster des contenus à votre place**,  
+> et **surveiller vos activités**, **sans que vous ne soyez averti**.  
+> Certaines plateformes peuvent détecter un accès suspect (IP/location)  
+> et vous envoyer un mail d’alerte, mais **ce n’est pas systématique**.
