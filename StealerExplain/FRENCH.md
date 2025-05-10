@@ -1,6 +1,6 @@
 # 🇫🇷 Version française
 
-L'objectif de ce résumé sur ce qu'est un "**stealer**" est de vous faire comprendre à quel point cela peut être **dangereux** et qu'ils peuvent se trouver **partout**.
+L'objectif de ce document sur ce qu'est un "**stealer**" est de vous faire comprendre à quel point cela peut être **dangereux** et qu'ils peuvent se trouver **partout**.
 
 ---
 
@@ -25,8 +25,6 @@ Dans d'autres cas, cela peut être directement une **demande de rançon**, sinon
 
 ---
 
-## Comment ça marche ?
-
 Maintenant, nous allons voir **tout ce qu'un stealer fait**, **où il va chercher les informations** et **comment le hacker les utilise**.
 
 Il faut savoir que les **"stealers" ne sont pas tous les mêmes**, tout cela va dépendre de plusieurs facteurs :
@@ -45,3 +43,24 @@ Si l'attaquant l'a codé lui-même, et qu'en plus de ça, il a déjà vu :
 - **Vos applications**, etc.
 
 Et qu'en plus de ça, il **connaît votre système d'exploitation**, il peut très bien développer **un stealer compatible avec celui-ci**, et **chercher au bon endroit** en optimisant son code pour récupérer **vos logins** et **cookies de navigateur**.
+
+## Comment ça marche ?
+
+Nous allons partir du principes que l'attaquant à utilisé un stealer open source. Maintenant qu'il à réussi à vous faire télécharger et executer son stealer, qu'elles sont les données qu'il a en sa possession ?  
+
+https://github.com/doenerium6969/doenerium-fixed/blob/main/stub/stub.js#L272
+
+https://github.com/PIKA-X-777/CStealer/blob/main/creal.py#L931
+
+Voici une liste des informations qu'il risque de détenir:
+
+ - les informations sur votre systeme (MAC, HWID, IP, KEY PRODUCT etc.)
+ - Vos logins (web)
+ - Votre historique (web)
+ - Vos cookies (web)
+ - Vos autofills (web)
+ - Vos bookmarks (web)
+ - Des fichiers spécifiques (password.txt, mdp.txt etc.)
+ - Vos wallets
+ - Votre session discord
+ - etc.
