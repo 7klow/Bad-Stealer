@@ -11,7 +11,7 @@ En bref, un "**stealer**" est un programme malveillant qui a pour but de **subti
 
 Dans d'autres cas, cela peut être directement une **demande de rançon**, sinon ils exposeront vos données à, par exemple, tous vos contacts ou sur des sites spécialisés dans le **"doxing"**.
 
-> [!IMPORTANT] 
+> [!CAUTION]  
 > **Ne payez jamais la rançon** (/ ne vous soumettez jamais à ses demandes).  
 > La seule chose que l'attaquant fera après avoir reçu le paiement, c'est de **faire fuiter vos données** et de disparaître.  
 > Voici des liens utiles pour limiter les dégâts:  
