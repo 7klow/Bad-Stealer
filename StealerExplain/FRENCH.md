@@ -86,7 +86,7 @@ Les stealers ne font que :
 - **Décrypter** les données (si nécessaire)
 - **Les envoyer** à l'attaquant (webhook, FTP, etc.)
 
-### Pour "tuer les tâches gênantes" :
+#### Pour "tuer les tâches gênantes" :
 Le programme **ferme les navigateurs** (Chrome, Edge, Firefox, etc.)  
 afin de pouvoir accéder aux **logins, cookies, autofills**, etc.
 
