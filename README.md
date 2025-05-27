@@ -22,7 +22,7 @@ The goal is to help users understand the risks, mechanics, and implications of d
 
 ## `⚙️` Technologies Used
 
-![Zig](https://img.shields.io/badge/Zig-000000?style=for-the-badge&logo=zig&logoColor=white)
+![Zig](https://img.shields.io/badge/Zig-00aaff?style=for-the-badge&logo=zig&logoColor=white)
 
 ## `⚠️` Usage & Warnings
 
