@@ -22,7 +22,10 @@ The goal is to help users understand the risks, mechanics, and implications of d
 
 ## `⚙️` Technologies Used
 
-![Zig](https://img.shields.io/badge/Zig-f7a700?style=for-the-badge&logo=zig&logoColor=black)
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white) 
+![pnet](https://img.shields.io/crates/v/pnet?style=for-the-badge&logo=rust&logoColor=white&label=pnet) 
+![pcap](https://img.shields.io/crates/v/pcap?style=for-the-badge&logo=rust&logoColor=white&label=pcap) 
+![tokio](https://img.shields.io/crates/v/tokio?style=for-the-badge&logo=rust&logoColor=white&label=tokio) 
 
 ## `⚠️` Usage & Warnings
 
